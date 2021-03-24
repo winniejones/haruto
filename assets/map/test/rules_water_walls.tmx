@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="25" height="25" tilewidth="16" tileheight="16" infinite="0" nextlayerid="14" nextobjectid="1">
+ <tileset firstgid="1" source="../pokemon_base.tsx"/>
+ <layer id="1" name="regions_input" width="25" height="25">
+  <data encoding="base64" compression="zlib">
+   eJxjYEAFGzkRGBsgRx5djNp8Wrl7IAA2N2DzO7nyw8mOgQCj+QO7PL3AcEm7wzV/jIJRMAroCwDYN2ih
+  </data>
+ </layer>
+ <layer id="7" name="regions_output" width="25" height="25">
+  <data encoding="base64" compression="zlib">
+   eJxjYGBg2MjJgBdQKj9QYLj6i1oA5j9c/qRUfriA4ZqOhqu/qAVG88coGAWjYLADAKwlEXE=
+  </data>
+ </layer>
+ <layer id="3" name="input_water" width="25" height="25">
+  <properties>
+   <property name="NoOverlappingRules" type="bool" value="true"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJxjYEAFLawITC2AbiY97BiqAJsfaBVWQ92OUTAKRsEoGAWjYCQDANXPDNk=
+  </data>
+ </layer>
+ <layer id="8" name="input_dirt" width="25" height="25" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJztwQENAAAAwqD3T20ON6AAAHgzCcQAAQ==
+  </data>
+ </layer>
+ <layer id="4" name="output_water" width="25" height="25">
+  <data encoding="base64" compression="zlib">
+   eJxjYGBg8GBlGJbgwDD1F7VAKzR8mkfDaRSMglEwCkbBKBhyAAAj1gIl
+  </data>
+ </layer>
+</map>

@@ -1,0 +1,2 @@
+rules_trees.tmx
+rules_buildings.tmx

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="25" height="25" tilewidth="16" tileheight="16" infinite="0" nextlayerid="5" nextobjectid="1">
+ <tileset firstgid="1" source="../tilesets/pokemon_base.tsx"/>
+ <layer id="1" name="regions_input" width="25" height="25">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFgw285qBMfiiD4ey3UUAbMJpmRgEMEJMWRtMLZeADWvh9HCbhCfMHNf1DCzPRAQCYnwuI
+  </data>
+ </layer>
+ <layer id="4" name="regions_output" width="25" height="25">
+  <data encoding="base64" compression="zlib">
+   eJztkEsKACAIRFt2/2u26gbRToZQR0laNCB9RnxNo7c2oLZmP5fmyR4pnP8ZOgNZOEeeX84RYVg9WbE52P4qxq3c7FtZBsv3+PLeekfW/4x6hkfaPLw7nRlGRY7sX+Le4kR8uXryRPyb8mZ4nbkA9TxoHw==
+  </data>
+ </layer>
+ <layer id="2" name="input_buildings" width="25" height="25">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFgw2s48Avv5WA/FAGhpwD7YJRMNTA3mGcH0YBaaCMiPKjfLSMoQgsRAu/RcMkPJOh/kihon/mQ81aQMMwAgBLhAbx
+  </data>
+ </layer>
+ <layer id="3" name="output_buildings" width="25" height="25">
+  <data encoding="base64" compression="zlib">
+   eJy91edOFWEQxvEFy9k9du9BRZqg0oti7zdBE4NKb/aKehOWTzakipVexIKggPcA0kWU7n/DfDjKagZCnOSXZ887w76cZAJVLsOoRg1qUQe76skGNKIJzXgjvRbyLd7hPT6gFR/RJjOeNcbZOCYwiSmZmSZn7GfTMLzgjSXmbG8puQzL4YIJC26sMOfeEcJZKMIQjgiZiSSjEI0YxGKH9HaScdiF3diDvdiH/Q53pHOWgUxkIVtmcshc5CEfBTgjvbPkOZzHBVzEJVzGFYc7iuSsmCxBqXwuI8tRIZ8ryWfy/Jx8gZd4hdeoQjVqHO7o5qwHX9GLPpnpJwcwiCEM45v0RsjvGMUP/MQYxjHhcMcGyzA2YhN8sNmaPfcl/eCPAARii/SCJLeS27AdIQhFmDX3joVUKu85iVM4jTSkIwOZDnfMd9ftus97HuAhHuExivAExQ53zHfXF1KaXW/n+3zCZ3SgE1344tL1Nbu+klyF1ViDtViH9cq+067b5bnrB8iDOITDOIKjOKbsa3b9KnkN11GIG7iJW8q+vevB1r93vZbZOtSjAY1oQrOp62t2fZLZKUxjxv45zr3grexrdj2cjEAkohCNGMQq+5rKYjZb5nPJPOSjwPq9nyOf/+xrqoTZUpShHBV4ikpL19dUL7N96McABjGEYUvXTySTHJ49y8fN32P4wg/+CECgW9e365689+5fvlsCs4lIQjKOIwUn3Lr+/6h4+d0TFul/i6Zuy113FvHOX+ad1XA=
+  </data>
+ </layer>
+</map>
