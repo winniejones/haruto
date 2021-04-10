@@ -53,7 +53,7 @@
         <dependency>
             <groupId>com.badlogicgames.gdx</groupId>
             <artifactId>gdx-freetype-platform</artifactId>
-            <scope>compile</scope>
+            <classifier>natives-desktop</classifier>
             <version>1.9.12</version>
         </dependency>
         <dependency>

@@ -2,15 +2,12 @@ package org.example.core.managers;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import org.example.core.GameResources;
 import org.example.core.screens.MainGameScreen;
 
 public class ScreenManager implements Renderable {
-    private GameResources gameResources;
     private Screen currentScreen;
 
-    public ScreenManager(GameResources gameResources) {
-        this.gameResources = gameResources;
+    public ScreenManager() {
     }
 
     public Screen getCurrentScreen() {
@@ -25,7 +22,7 @@ public class ScreenManager implements Renderable {
     }
 
     public void loadWorldScreen() {
-        setCurrentScreen(new MainGameScreen(gameResources));
+        setCurrentScreen(new MainGameScreen());
     }
 
     @Override

@@ -66,6 +66,17 @@
             <artifactId>javafx-base</artifactId>
             <version>16-ea+4</version>
         </dependency>
+        <dependency>
+            <groupId>com.badlogicgames.gdx</groupId>
+            <artifactId>gdx-freetype</artifactId>
+            <version>1.9.12</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.kotcrab.vis</groupId>
+            <artifactId>vis-ui</artifactId>
+            <version>1.4.11</version>
+        </dependency>
     </dependencies>
 
     <build>

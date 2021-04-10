@@ -1,0 +1,62 @@
+package org.example.core.ui.debug.nodes;
+
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.kotcrab.vis.ui.VisUI;
+import org.example.core.ui.debug.SystemExplorerWindow;
+import org.example.core.utils.LogHelper;
+import org.example.core.utils.SimpleTimer;
+
+import java.lang.reflect.Field;
+
+import static org.example.core.factories.FontFactory.skinSmallFont;
+
+public class ReflectionNode extends UpdateNode {
+    boolean isNew = false;
+    private SimpleTimer newTimer;
+
+    public ReflectionNode(Object object) {
+        super(new Label(LogHelper.objString(object), VisUI.getSkin(), skinSmallFont, Color.WHITE), object);
+        init();
+    }
+
+    public ReflectionNode(Object object, boolean markNew) {
+        this(object);
+
+        isNew = markNew;
+        if (isNew) {
+            newTimer = new SimpleTimer(SystemExplorerWindow.newTime, true);
+            getActor().setColor(Color.GREEN);
+        }
+    }
+
+    private void init() {
+        for (Field f : getValue().getClass().getFields()) {
+            add(new FieldNode(new Label("init", VisUI.getSkin(), skinSmallFont, Color.WHITE), getValue(), f));
+        }
+    }
+
+    @Override
+    public void update() {
+        if (isNew && newTimer.tryEvent()) {
+            isNew = false;
+            newTimer = null;
+            getActor().setColor(Color.WHITE);
+        }
+
+        if (!isExpanded())
+            return;
+
+        for (Object node : getChildren())
+            ((FieldNode) node).update();
+
+    }
+
+    @Override
+    public String toString() {
+        if (getValue() == null)
+            return super.toString();
+
+        return LogHelper.objString(getValue());
+    }
+}

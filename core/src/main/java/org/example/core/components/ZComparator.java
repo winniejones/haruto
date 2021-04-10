@@ -2,6 +2,7 @@ package org.example.core.components;
 
 import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.ashley.core.Entity;
+import org.example.core.utils.Mappers;
 
 import java.util.Comparator;
 
@@ -12,27 +13,8 @@ public class ZComparator implements Comparator<Entity> {
     private ComponentMapper<RenderComponent> rm = ComponentMapper.getFor(RenderComponent.class);
 
     @Override
-    public int compare(Entity e1, Entity e2) {
-        int priorityDiff = getPriorityDifference(e1, e2);
-
-        if (priorityDiff == 0)
-            return getVerticalPositionDifferente(e1, e2);
-
-        return priorityDiff;
-    }
-
-    private int getVerticalPositionDifferente(Entity e1, Entity e2) {
-        PositionComponent p1 = pm.get(e1);
-        PositionComponent p2 = pm.get(e2);
-
-        return (int) ((p2.y - p1.y) * DIFF_MULTIPLIER);
-    }
-
-    private int getPriorityDifference(Entity e1, Entity e2) {
-        RenderComponent r1 = rm.get(e1);
-        RenderComponent r2 = rm.get(e2);
-
-        //return r2.getPriority().getValue() - r1.getPriority().getValue();
-        return 0;
+    public int compare(Entity entityA, Entity entityB) {
+        return (int) Math.signum(Mappers.position.get(entityB).zOrder
+                    - Mappers.position.get(entityA).zOrder);
     }
 }
