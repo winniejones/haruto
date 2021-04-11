@@ -30,6 +30,6 @@ public class DebugConfig {
         drawInactiveBodies = true;
         drawContacts = true;
         drawMousePos = false;
-        drawEntityList = false;
+        drawEntityList = true;
     }
 }

@@ -9,4 +9,5 @@ public class Mappers {
     public static final ComponentMapper<PositionComponent> position = ComponentMapper.getFor(PositionComponent.class);
     public static final ComponentMapper<CharacterComponent> character = ComponentMapper.getFor(CharacterComponent.class);
     public static final ComponentMapper<TextureComponent> texture = ComponentMapper.getFor(TextureComponent.class);
+    public static final ComponentMapper<StateComponent> state = ComponentMapper.getFor(StateComponent.class);
 }

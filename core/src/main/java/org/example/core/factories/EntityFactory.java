@@ -6,6 +6,10 @@ import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import org.example.core.components.*;
 
+import static org.example.core.components.StateComponent.ACTION_STANDING;
+import static org.example.core.factories.AnimationFactory.*;
+import static org.example.core.utils.Direction.*;
+
 public class EntityFactory {
     public static Entity createCharacter(float x, float y) {
         Entity entity = new Entity();
@@ -18,6 +22,18 @@ public class EntityFactory {
         CharacterComponent character = new CharacterComponent();
         character.walkSpeed = 2f;
         entity.add(character);
+
+        AnimationComponent animationComponent = new AnimationComponent();
+        animationComponent.animations.put(UP, getItachiUp(0.2f));
+        animationComponent.animations.put(DOWN, getItachiDown(0.2f));
+        animationComponent.animations.put(LEFT, getItachiLeft(0.2f));
+        animationComponent.animations.put(RIGHT, getItachiRight(0.2f));
+        entity.add(animationComponent);
+
+        StateComponent state = new StateComponent();
+        state.setDirection(DOWN);
+        state.setAction(ACTION_STANDING);
+        entity.add(state);
 
         TextureComponent texture = new TextureComponent();
         texture.texture = createTexture(1, 1, Color.ROYAL);

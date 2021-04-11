@@ -106,7 +106,7 @@ public class DebugSystem extends IteratingSystem implements Disposable {
     @Override
     public void addedToEngine(Engine engine) {
         super.addedToEngine(engine);
-        engineView = new SystemExplorerWindow(getEngine());
+        engineView = new SystemExplorerWindow(engine);
     }
 
     @Override
@@ -269,10 +269,6 @@ public class DebugSystem extends IteratingSystem implements Disposable {
 
         String localPos = x + "," + y;
         debugTexts.add(new DebugText(localPos, x, y));
-
-//        Vector3 worldPos = cam.unproject(new Vector3(x, y, 0));
-//        long seed = getSeed(worldPos.x, worldPos.y);
-//        debugTexts.add(new DebugText((int) worldPos.x + "," + (int) worldPos.y + " (" + seed + ")", x, y + fontSmall.getLineHeight()));
 
         float angle = angleTo(Gdx.input.getX(), Gdx.input.getY(), Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight() / 2);
         debugTexts.add(new DebugText(round(angle, 3) + " / " + round(angle * MathUtils.radDeg, 3), x, y + (int) fontSmall.getLineHeight() * 2));

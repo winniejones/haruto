@@ -9,6 +9,7 @@ import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.InputProcessor;
 import org.example.core.components.ControlFocusComponent;
 import org.example.core.components.ControllableComponent;
+import org.example.core.components.StateComponent;
 import org.example.core.screens.MainGameScreen;
 import org.example.core.utils.Mappers;
 
@@ -35,12 +36,16 @@ public class DesktopInputSystem extends EntitySystem implements InputProcessor {
     @Override
     public boolean keyDown(int keycode) {
         keys[keycode] = true;
+        StateComponent state = Mappers.state.get(players.first());
+        state.setAction(StateComponent.ACTION_WALKING);
         return true;
     }
 
     @Override
     public boolean keyUp(int keycode) {
         keys[keycode] = false;
+        StateComponent state = Mappers.state.get(players.first());
+        state.setAction(StateComponent.ACTION_STANDING);
         return true;
     }
 

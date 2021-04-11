@@ -7,6 +7,8 @@ import com.badlogic.ashley.systems.IteratingSystem;
 import org.example.core.components.CharacterComponent;
 import org.example.core.components.ControllableComponent;
 import org.example.core.components.PositionComponent;
+import org.example.core.components.StateComponent;
+import org.example.core.utils.Direction;
 import org.example.core.utils.Mappers;
 
 public class CharacterControlSystem extends IteratingSystem {
@@ -29,18 +31,23 @@ public class CharacterControlSystem extends IteratingSystem {
         ControllableComponent control = Mappers.controllable.get(entity);
         PositionComponent pos = Mappers.position.get(entity);
         CharacterComponent character = Mappers.character.get(entity);
+        StateComponent state = Mappers.state.get(entity);
         float walkSpeed = character.walkSpeed * delta;
 
 //        LogHelper.printObjectFields(control);
 
         if (control.up) {
+            state.setDirection(Direction.UP);
             pos.setPos(pos.pos.x, pos.pos.y + walkSpeed);
 //            physicsComp.body.applyForceToCenter(MyMath.vector(physicsComp.body.getAngle(), walkSpeed), true);
         } else if (control.down) {
+            state.setDirection(Direction.DOWN);
             pos.setPos(pos.pos.x, pos.pos.y - walkSpeed);
         } else if (control.left) {
+            state.setDirection(Direction.LEFT);
             pos.setPos(pos.pos.x - walkSpeed, pos.pos.y);
         } else if (control.right) {
+            state.setDirection(Direction.RIGHT);
             pos.setPos(pos.pos.x + walkSpeed, pos.pos.y);
         }
     }

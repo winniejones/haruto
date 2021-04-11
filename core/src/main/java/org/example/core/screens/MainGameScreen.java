@@ -99,6 +99,7 @@ public class MainGameScreen implements Screen {
         engine.addSystem(new DesktopInputSystem());
 
         engine.addSystem(new CharacterControlSystem());
+        engine.addSystem(new AnimationSystem());
 
         engine.addSystem(new RenderMapSystem());
         engine.addSystem(new CameraSystem());

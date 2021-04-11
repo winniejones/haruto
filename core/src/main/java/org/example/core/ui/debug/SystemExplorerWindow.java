@@ -31,7 +31,6 @@ public class SystemExplorerWindow extends VisWindow implements EntityListener {
     private Tree tree;
     private Node systemNodes, entityNodes;
 
-    //todo: move values to config
     private static int refreshRate = 1000;
     public static int newTime = 1000;
     public static int removeTime = 1000;
