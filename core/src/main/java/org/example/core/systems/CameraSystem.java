@@ -28,7 +28,7 @@ public class CameraSystem extends IteratingSystem {
         cam.position.x = position.pos.x;
         cam.position.y = position.pos.y;
 
-//        animateZoom(delta, cameraFocus.zoomTarget);
+        animateZoom(delta, cameraFocus.zoomTarget);
         cam.update();
     }
 

@@ -19,7 +19,7 @@ public class DesktopInputSystem extends EntitySystem implements InputProcessor {
 
     @Override
     public void addedToEngine(Engine engine) {
-        players = engine.getEntitiesFor(Family.all(ControlFocusComponent.class,ControllableComponent.class).get());
+        players = engine.getEntitiesFor(Family.all(ControlFocusComponent.class, ControllableComponent.class).get());
         MainGameScreen.getInputMultiplexer().addProcessor(this);
     }
 

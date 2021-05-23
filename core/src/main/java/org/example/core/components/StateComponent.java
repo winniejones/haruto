@@ -21,8 +21,10 @@ public class StateComponent implements Component {
     }
 
     public void setDirection(int dir) {
+        if(direction != dir) {
+            time = 0.0f;
+        }
         direction = dir;
-        time = 0.0f;
     }
 
     public void setAction(int act) {

@@ -13,13 +13,13 @@ import org.example.core.utils.Dimensions;
 
 public class RenderMapSystem extends EntitySystem implements Disposable {
     public static final String PATH_TO_TILE_MAP = "map/test/test_map.tmx";
-    public static final int[] BASE_LAYERS = new int[]{0,1,2,3};
-    public static final int[] UPPER_LAYERS = new int[]{4};
+    public static final int[] BASE_LAYERS = new int[]{0,1,2};
+    public static final int[] UPPER_LAYERS = new int[]{3,4};
     private SpriteBatch batch;
 
     /* Tile map */
-    private TiledMap map;
-    private OrthogonalTiledMapRenderer mapRenderer;
+    public TiledMap map;
+    public OrthogonalTiledMapRenderer mapRenderer;
     private OrthographicCamera camera;
 
     public RenderMapSystem() {
@@ -41,6 +41,10 @@ public class RenderMapSystem extends EntitySystem implements Disposable {
         batch.setProjectionMatrix(camera.combined);
         mapRenderer.setView(camera);
         mapRenderer.render(BASE_LAYERS);
+    }
+
+    public void renderTopLayers() {
+        mapRenderer.render();
     }
 
     @Override

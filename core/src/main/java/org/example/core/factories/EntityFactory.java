@@ -16,11 +16,11 @@ public class EntityFactory {
 
         PositionComponent position = new PositionComponent();
         position.pos.set(x, y);
-        position.zOrder = (byte)100;
+        position.zOrder = (byte) 100;
         entity.add(position);
 
         CharacterComponent character = new CharacterComponent();
-        character.walkSpeed = 2f;
+        character.walkSpeed = 10f;
         entity.add(character);
 
         AnimationComponent animationComponent = new AnimationComponent();
@@ -37,7 +37,12 @@ public class EntityFactory {
 
         TextureComponent texture = new TextureComponent();
         texture.texture = createTexture(1, 1, Color.ROYAL);
+        texture.region = animationComponent.animations.get(state.getDirection()).getKeyFrame(state.time);
         entity.add(texture);
+
+        PhysicsComponent physics = new PhysicsComponent();
+        physics.body = BodyFactory.createPlayerBody(x, y, entity);
+        entity.add(physics);
 
         entity.add(new ControllableComponent());
         return entity;
@@ -47,7 +52,7 @@ public class EntityFactory {
         Entity character = createCharacter(x, y);
 
         CameraFocusComponent camFocus = new CameraFocusComponent();
-        camFocus.zoomTarget = 0.5f;
+        camFocus.zoomTarget = 1.0f;
         character.add(camFocus);
 
         character.add(new ControlFocusComponent());

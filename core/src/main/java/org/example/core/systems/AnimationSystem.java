@@ -24,15 +24,15 @@ public class AnimationSystem extends IteratingSystem {
         Animation<TextureRegion> animation = anim.animations.get(state.getDirection());
 
         if (animation != null) {
+//            LogHelper.printObjectFields(state);
             if (state.getAction() == StateComponent.ACTION_WALKING) {
-                tex.region = animation.getKeyFrame(deltaTime, true);
+                tex.region = animation.getKeyFrame(state.time, true);
+                state.time += deltaTime;
             } else if (state.getAction() == StateComponent.ACTION_STANDING) {
-                tex.region = animation.getKeyFrame(deltaTime,true);
+                tex.region = animation.getKeyFrame(state.time);
             }
-
-//            tex.region = animation.getKeyFrame(state.time);
         }
 
-        state.time += deltaTime;
+
     }
 }

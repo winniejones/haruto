@@ -16,8 +16,6 @@ import org.example.core.utils.Mappers;
 
 import java.util.Comparator;
 
-import static org.example.core.utils.Dimensions.PIXELS_TO_METRES;
-
 public class RenderEntitySystem extends SortedIteratingSystem {
     private SpriteBatch spriteBatch;
     private Array<Entity> renderQueue; // an array used to allow sorting of images allowing us to draw images on top of each other
@@ -38,7 +36,7 @@ public class RenderEntitySystem extends SortedIteratingSystem {
         renderQueue.sort(comparator);
         // update camera and sprite batch
         cam.update();
-        spriteBatch.setProjectionMatrix(cam.combined);
+//        spriteBatch.setProjectionMatrix(cam.combined);
         spriteBatch.enableBlending();
         spriteBatch.begin();
 
@@ -46,7 +44,7 @@ public class RenderEntitySystem extends SortedIteratingSystem {
             renderEntity(entity);
         }
         spriteBatch.end();
-        spriteBatch.disableBlending();
+//        spriteBatch.disableBlending();
         renderQueue.clear();
     }
 
@@ -56,11 +54,9 @@ public class RenderEntitySystem extends SortedIteratingSystem {
     }
 
     private void renderEntity(Entity entity) {
-//        RenderComponent renderComponent = rm.get(entity);
         TextureComponent textureComponent = Mappers.texture.get(entity);
         PositionComponent positionComponent = Mappers.position.get(entity);
         Vector2 pos = new Vector2(positionComponent.pos.x, positionComponent.pos.y);
-
 
         if (textureComponent.region != null) {
             float width = textureComponent.region.getRegionWidth();
@@ -70,9 +66,9 @@ public class RenderEntitySystem extends SortedIteratingSystem {
 
             spriteBatch.draw(
                     textureComponent.region, (pos.x - originX), (pos.y - originY),
-                    originX, originY,
+                    originX, originY+0.4f,
                     width, height,
-                    PIXELS_TO_METRES, PIXELS_TO_METRES,
+                    (0.65f/16f), (0.65f/16f),
                     0);
         } else {
             float width = textureComponent.texture.getWidth();
@@ -83,7 +79,7 @@ public class RenderEntitySystem extends SortedIteratingSystem {
                     textureComponent.texture, (pos.x - originX), (pos.y - originY),
                     originX, originY,
                     width, height,
-                    1.0f, 1.0f,
+                    0.75f, 0.75f,
                     0,
                     0, 0, (int) width, (int) height, false, false);
         }

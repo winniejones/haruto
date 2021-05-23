@@ -1,4 +1,4 @@
-package org.example.core.systems;
+package org.example.core.config;
 
 public class DebugConfig {
     public boolean drawDebugUI;

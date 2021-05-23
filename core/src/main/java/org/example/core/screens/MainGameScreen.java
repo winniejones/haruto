@@ -74,7 +74,7 @@ public class MainGameScreen implements Screen {
     }
 
     private void initializeGame() {
-        Entity player = EntityFactory.createPlayer(400, 400);
+        Entity player = EntityFactory.createPlayer(8, 484);
         gameTimeStart = System.nanoTime();
         initializeGameWorld(player);
     }
@@ -98,12 +98,15 @@ public class MainGameScreen implements Screen {
         engine.addSystem(new ClearScreenSystem());
         engine.addSystem(new DesktopInputSystem());
 
-        engine.addSystem(new CharacterControlSystem());
+        engine.addSystem(new CharacterMovementSystem());
+        engine.addSystem(new PhysicsSystem(MainGameScreen.world));
         engine.addSystem(new AnimationSystem());
-
-        engine.addSystem(new RenderMapSystem());
+        RenderMapSystem renderMapSystem = new RenderMapSystem();
+        engine.addSystem(renderMapSystem);
+        engine.addSystem(new ObstacleSystem(renderMapSystem.map));
         engine.addSystem(new CameraSystem());
         engine.addSystem(new RenderEntitySystem());
+        engine.addSystem(new RenderOverlayMapSystem(renderMapSystem.mapRenderer));
         engine.addSystem(new DebugSystem());
         long now = System.currentTimeMillis();
         Gdx.app.log(this.getClass().getSimpleName(), "systems loaded in " + (now - time) + "ms");

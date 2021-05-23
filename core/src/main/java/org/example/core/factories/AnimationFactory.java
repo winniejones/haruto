@@ -8,54 +8,51 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import static org.example.core.utils.Assets.ITACHI_ASSET;
 
 public class AnimationFactory {
+    public static Animation<TextureRegion> getAnimationRegion(float frameDuration, String pathToAsset, int pxSize, int yStart, int[] frameOrder, boolean texRegIsHorizontal) {
+        if (texRegIsHorizontal) {
+            return getRegionsHorizontally(
+                    loadTexture(pathToAsset),
+                    frameDuration, frameOrder,
+                    pxSize, 0, yStart
+            );
+        } else {
+            return getRegionsVertically(
+                    loadTexture(pathToAsset),
+                    frameDuration, frameOrder,
+                    pxSize, 0, yStart
+            );
+        }
+    }
+
     public static Animation<TextureRegion> getItachiUp(float frameDuration) {
-        return new Animation<>(
-                frameDuration,
-                new TextureRegion(
-                        loadTexture(ITACHI_ASSET),
-                        0,
-                        96,
-                        32,
-                        32
-                ),
-                new TextureRegion(
-                        loadTexture(ITACHI_ASSET),
-                        32,
-                        96,
-                        32,
-                        32
-                ),
-                new TextureRegion(
-                        loadTexture(ITACHI_ASSET),
-                        64,
-                        96,
-                        32,
-                        32
-                )
+        return getRegionsHorizontally(
+                loadTexture(ITACHI_ASSET),
+                frameDuration, new int[]{1, 0, 1, 2},
+                32, 0, 96
         );
     }
 
     public static Animation<TextureRegion> getItachiDown(float frameDuration) {
-        return easyGetRegions(
+        return getRegionsHorizontally(
                 loadTexture(ITACHI_ASSET),
-                frameDuration, 3,
-                32, 0, 0, false
+                frameDuration, new int[]{1, 0, 1, 2},
+                32, 0, 0
         );
     }
 
     public static Animation<TextureRegion> getItachiLeft(float frameDuration) {
-        return easyGetRegions(
+        return getRegionsHorizontally(
                 loadTexture(ITACHI_ASSET),
-                frameDuration, 3,
-                32, 0, 32, true
+                frameDuration, new int[]{1, 0, 1, 2},
+                32, 0, 32
         );
     }
 
     public static Animation<TextureRegion> getItachiRight(float frameDuration) {
-        return easyGetRegions(
+        return getRegionsHorizontally(
                 loadTexture(ITACHI_ASSET),
-                frameDuration, 3,
-                32, 0, 64, true
+                frameDuration, new int[]{1, 0, 1, 2},
+                32, 0, 64
         );
     }
 
@@ -63,28 +60,34 @@ public class AnimationFactory {
         return new Texture(Gdx.files.internal(file));
     }
 
-    public static Animation<TextureRegion> easyGetRegions(
-            Texture texture, float frameDuration, int amountOfFrames, int pxSize, int xStart, int yStart, boolean regionIsHorizontallyAligned
+    public static Animation<TextureRegion> getRegionsHorizontally(
+            Texture texture, float frameDuration, int[] frameOrder, int pxSize, int xStart, int yStart
     ) {
-        TextureRegion[] regions = new TextureRegion[amountOfFrames];
-        for(int i = 0; i < amountOfFrames; i++) {
-            if(regionIsHorizontallyAligned){
-                regions[i] = new TextureRegion(
-                        texture,
-                        xStart+ (pxSize * i),
-                        yStart ,
-                        pxSize,
-                        pxSize
-                );
-            } else {
-                regions[i] = new TextureRegion(
-                        texture,
-                        xStart,
-                        yStart + (pxSize * i),
-                        pxSize,
-                        pxSize
-                );
-            }
+        TextureRegion[] regions = new TextureRegion[frameOrder.length];
+        for (int i = 0; i < frameOrder.length; i++) {
+            regions[i] = new TextureRegion(
+                    texture,
+                    xStart + (pxSize * frameOrder[i]),
+                    yStart,
+                    pxSize,
+                    pxSize
+            );
+        }
+        return new Animation<>(frameDuration, regions);
+    }
+
+    public static Animation<TextureRegion> getRegionsVertically(
+            Texture texture, float frameDuration, int[] frameOrder, int pxSize, int xStart, int yStart
+    ) {
+        TextureRegion[] regions = new TextureRegion[frameOrder.length];
+        for (int i = 0; i < frameOrder.length; i++) {
+            regions[i] = new TextureRegion(
+                    texture,
+                    xStart,
+                    yStart + (pxSize * frameOrder[i]),
+                    pxSize,
+                    pxSize
+            );
         }
         return new Animation<>(frameDuration, regions);
     }

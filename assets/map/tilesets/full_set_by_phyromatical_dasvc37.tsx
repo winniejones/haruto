@@ -10,7 +10,13 @@
   <terrain name="dirt_pathway" tile="256"/>
   <terrain name="stone_pathway" tile="1351"/>
   <terrain name="sand" tile="551"/>
-  <terrain name="water" tile="701"/>
+  <terrain name="water" tile="701">
+   <properties>
+    <property name="isWater" type="bool" value="true"/>
+   </properties>
+  </terrain>
+  <terrain name="hard_dirt" tile="1662"/>
+  <terrain name="sunken_dirt" tile="1462"/>
  </terraintypes>
  <tile id="50" terrain="1,1,1,2"/>
  <tile id="51" terrain="1,1,2,2"/>
@@ -141,7 +147,6 @@
  <tile id="755" terrain="7,8,7,7"/>
  <tile id="756" terrain="8,8,7,7"/>
  <tile id="757" terrain="8,7,7,7"/>
- <tile id="758" terrain="8,8,8,8"/>
  <tile id="800" terrain="0,0,0,8"/>
  <tile id="801" terrain="0,0,8,8"/>
  <tile id="802" terrain="0,0,8,0"/>
@@ -233,17 +238,56 @@
  <tile id="1400" terrain="3,6,3,3"/>
  <tile id="1401" terrain="6,6,3,3"/>
  <tile id="1402" terrain="6,3,3,3"/>
+ <tile id="1411" terrain="9,9,9,10"/>
+ <tile id="1412" terrain="9,9,10,10"/>
+ <tile id="1413" terrain="9,9,10,9"/>
+ <tile id="1414" terrain="10,10,10,9"/>
+ <tile id="1415" terrain="10,10,9,10"/>
+ <tile id="1416" terrain="9,9,9,8"/>
+ <tile id="1417" terrain="9,9,8,8"/>
+ <tile id="1418" terrain="9,9,8,9"/>
+ <tile id="1419" terrain="8,8,8,9"/>
+ <tile id="1420" terrain="8,8,9,8"/>
  <tile id="1450" terrain="3,3,3,5"/>
  <tile id="1451" terrain="3,3,5,5"/>
  <tile id="1452" terrain="3,3,5,3"/>
  <tile id="1453" terrain="3,5,5,5"/>
  <tile id="1454" terrain="5,3,5,5"/>
+ <tile id="1461" terrain="9,10,9,10"/>
+ <tile id="1462" terrain="10,10,10,10"/>
+ <tile id="1463" terrain="10,9,10,9"/>
+ <tile id="1464" terrain="10,9,10,10"/>
+ <tile id="1465" terrain="9,10,10,10"/>
+ <tile id="1466" terrain="9,8,9,8"/>
+ <tile id="1467" terrain="8,8,8,8"/>
+ <tile id="1468" terrain="8,9,8,9"/>
+ <tile id="1469" terrain="8,9,8,8"/>
+ <tile id="1470" terrain="9,8,8,8"/>
  <tile id="1500" terrain="3,5,3,5"/>
  <tile id="1501" terrain="5,5,5,5"/>
  <tile id="1502" terrain="5,3,5,3"/>
  <tile id="1503" terrain="5,5,3,5"/>
  <tile id="1504" terrain="5,5,5,3"/>
+ <tile id="1511" terrain="9,10,9,9"/>
+ <tile id="1512" terrain="10,10,9,9"/>
+ <tile id="1513" terrain="10,9,9,9"/>
+ <tile id="1516" terrain="9,8,9,9"/>
+ <tile id="1517" terrain="8,8,9,9"/>
+ <tile id="1518" terrain="8,9,9,9"/>
  <tile id="1550" terrain="3,5,3,3"/>
  <tile id="1551" terrain="5,5,3,3"/>
  <tile id="1552" terrain="5,3,3,3"/>
+ <tile id="1611" terrain=",,,9"/>
+ <tile id="1612" terrain=",,9,9"/>
+ <tile id="1613" terrain=",,9,"/>
+ <tile id="1614" terrain="9,9,9,"/>
+ <tile id="1615" terrain="9,9,,9"/>
+ <tile id="1661" terrain=",9,,9"/>
+ <tile id="1662" terrain="9,9,9,9"/>
+ <tile id="1663" terrain="9,,9,"/>
+ <tile id="1664" terrain="9,,9,9"/>
+ <tile id="1665" terrain=",9,9,9"/>
+ <tile id="1711" terrain=",9,,"/>
+ <tile id="1712" terrain="9,9,,"/>
+ <tile id="1713" terrain="9,,,"/>
 </tileset>

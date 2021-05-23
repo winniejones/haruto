@@ -24,6 +24,7 @@ import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Disposable;
 import org.example.core.components.PositionComponent;
+import org.example.core.config.DebugConfig;
 import org.example.core.factories.FontFactory;
 import org.example.core.screens.MainGameScreen;
 import org.example.core.ui.debug.DebugText;
