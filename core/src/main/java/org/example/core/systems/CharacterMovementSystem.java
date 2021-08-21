@@ -34,8 +34,8 @@ public class CharacterMovementSystem extends IteratingSystem {
         float xa = 0, ya = 0;
 //        LogHelper.printObjectFields(control);
 
-        moveStyleLinear(delta, control, state, physicsComp, walkSpeed);
-//        moveStyleold(delta, control, pos, state, physicsComp, walkSpeed);
+//        moveStyleLinear(delta, control, state, physicsComp, walkSpeed);
+        moveStyleold(delta, control, pos, state, physicsComp, walkSpeed);
     }
 
     private void moveStyleLinear(float delta, ControllableComponent control, StateComponent state, PhysicsComponent physicsComp, float walkSpeed) {
@@ -65,15 +65,12 @@ public class CharacterMovementSystem extends IteratingSystem {
         } else if (control.down) {
             state.setDirection(Direction.DOWN);
             pos.setPos(pos.pos.x, pos.pos.y - (walkSpeed* delta));
-//            physicsComp.body.setLinearVelocity(walkSpeed * pos.pos.x * delta, walkSpeed * pos.pos.y * delta);
         } else if (control.left) {
             state.setDirection(Direction.LEFT);
             pos.setPos(pos.pos.x - (walkSpeed* delta), pos.pos.y);
-//            physicsComp.body.setLinearVelocity(walkSpeed * pos.pos.x * delta, walkSpeed * pos.pos.y * delta);
         } else if (control.right) {
             state.setDirection(Direction.RIGHT);
             pos.setPos(pos.pos.x + (walkSpeed* delta), pos.pos.y);
-//            physicsComp.body.setLinearVelocity(walkSpeed * pos.pos.x * delta, walkSpeed * pos.pos.y * delta);
         }
     }
 }

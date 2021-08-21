@@ -3,7 +3,6 @@ package org.example.core.systems;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IteratingSystem;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
 import org.example.core.components.PhysicsComponent;
 import org.example.core.components.PositionComponent;
@@ -31,9 +30,9 @@ public class PhysicsSystem extends IteratingSystem {
         PositionComponent position = Mappers.position.get(entity);
         PhysicsComponent physics = Mappers.physics.get(entity);
 
-        Vector2 vector = physics.body.getPosition();
+//        Vector2 vector = physics.body.getPosition();
+//        position.setPos(vector);
 
-        position.setPos(vector);
 //        physics.body.setTransform(position.pos.x, position.pos.y, physics.body.getAngle());
 
     }

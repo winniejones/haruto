@@ -71,17 +71,17 @@ public class RenderEntitySystem extends SortedIteratingSystem {
                     (0.65f/16f), (0.65f/16f),
                     0);
         } else {
-            float width = textureComponent.texture.getWidth();
-            float height = textureComponent.texture.getHeight();
-            float originX = width * 0.5f; //center
-            float originY = height * 0.5f; //center
+            float textureWidth = textureComponent.texture.getWidth();
+            float textureHeight = textureComponent.texture.getHeight();
+            float textureOriginX = textureWidth * 0.5f; //center
+            float textureOriginY = textureHeight * 0.5f; //center
             spriteBatch.draw(
-                    textureComponent.texture, (pos.x - originX), (pos.y - originY),
-                    originX, originY,
-                    width, height,
+                    textureComponent.texture, (pos.x - textureOriginX), (pos.y - textureOriginY),
+                    textureOriginX, textureOriginY,
+                    textureWidth, textureHeight,
                     0.75f, 0.75f,
                     0,
-                    0, 0, (int) width, (int) height, false, false);
+                    0, 0, (int) textureWidth, (int) textureHeight, false, false);
         }
     }
 }

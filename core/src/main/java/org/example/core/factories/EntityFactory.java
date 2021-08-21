@@ -6,6 +6,8 @@ import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import org.example.core.components.*;
 
+import java.awt.*;
+
 import static org.example.core.components.StateComponent.ACTION_STANDING;
 import static org.example.core.factories.AnimationFactory.*;
 import static org.example.core.utils.Direction.*;
@@ -41,7 +43,8 @@ public class EntityFactory {
         entity.add(texture);
 
         PhysicsComponent physics = new PhysicsComponent();
-        physics.body = BodyFactory.createPlayerBody(x, y, entity);
+        Rectangle rectangle = BodyFactory.createPlayerBody(x, y, entity);
+        physics.setRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
         entity.add(physics);
 
         entity.add(new ControllableComponent());

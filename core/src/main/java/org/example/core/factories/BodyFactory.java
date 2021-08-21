@@ -6,16 +6,15 @@ import com.badlogic.gdx.physics.box2d.*;
 import org.example.core.screens.MainGameScreen;
 import org.example.core.utils.Mappers;
 
+import java.awt.*;
+
 import static org.example.core.utils.Dimensions.ENTITY_SIZE;
 
 public class BodyFactory {
 
-    public static Body createPlayerBody(float x, float y, Entity entity) {
+    public static Rectangle createPlayerBody(float x, float y, Entity entity) {
         TextureRegion txregion = Mappers.texture.get(entity).region;
-        Body body = createRect(x, y, txregion.getRegionWidth()*ENTITY_SIZE/3, txregion.getRegionHeight()*ENTITY_SIZE/3, BodyDef.BodyType.DynamicBody);
-        body.setLinearDamping(10f);
-        body.setUserData(entity);
-        return body;
+        return createRectangle(x, y, txregion.getRegionWidth() * ENTITY_SIZE / 3, txregion.getRegionHeight() * ENTITY_SIZE / 3);
     }
 
     public static Body createCircle(float x, float y, float radius) {
@@ -68,5 +67,9 @@ public class BodyFactory {
         // BodyDef and FixtureDef don't need disposing, but shapes do.
         poly.dispose();
         return body;
+    }
+
+    public static Rectangle createRectangle(float x, float y, float width, float height) {
+        return new Rectangle((int) x, (int) y, (int) width, (int) height);
     }
 }

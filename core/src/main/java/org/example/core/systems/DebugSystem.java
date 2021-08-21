@@ -148,7 +148,6 @@ public class DebugSystem extends IteratingSystem implements Disposable {
             if (debugCFG.drawComponentList)
                 drawComponentList();
 
-
             drawDebugTexts(batch);
         }
         batch.end();
@@ -202,7 +201,7 @@ public class DebugSystem extends IteratingSystem implements Disposable {
 
         //toggle bounds
         if (Gdx.input.isKeyJustPressed(Keys.NUMPAD_2)) {
-            debugCFG.box2DDebugRender = !debugCFG.box2DDebugRender;
+//            debugCFG.box2DDebugRender = !debugCFG.box2DDebugRender;
             Gdx.app.log(this.getClass().getSimpleName(), "[debug] draw bounds: " + debugCFG.box2DDebugRender);
         }
 
@@ -271,7 +270,7 @@ public class DebugSystem extends IteratingSystem implements Disposable {
         String localPos = x + "," + y;
         debugTexts.add(new DebugText(localPos, x, y));
 
-        float angle = angleTo(Gdx.input.getX(), Gdx.input.getY(), Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight() / 2);
+        float angle = angleTo(Gdx.input.getX(), Gdx.input.getY(), Gdx.graphics.getWidth() >> 1, Gdx.graphics.getHeight() >> 1);
         debugTexts.add(new DebugText(round(angle, 3) + " / " + round(angle * MathUtils.radDeg, 3), x, y + (int) fontSmall.getLineHeight() * 2));
     }
 
@@ -310,6 +309,26 @@ public class DebugSystem extends IteratingSystem implements Disposable {
             debugTexts.add(new DebugText(Integer.toHexString(entity.hashCode()), x, y + (fontHeight * i++)));
         }
     }
+
+    /*private void drawHitbox(SpriteBatch batch) {
+        for (Entity entity : objects) {
+            TextureComponent textureComponent = Mappers.texture.get(entity);
+            PositionComponent positionComponent = Mappers.position.get(entity);
+            Vector2 pos = new Vector2(positionComponent.pos.x, positionComponent.pos.y);
+
+            float width = textureComponent.texture.getWidth();
+            float height = textureComponent.texture.getHeight();
+            float originX = width * 0.5f; //center
+            float originY = height * 0.5f; //center
+            batch.draw(
+                    textureComponent.texture, (pos.x - originX), (pos.y - originY),
+                    originX, originY,
+                    width, height,
+                    0.75f, 0.75f,
+                    0,
+                    0, 0, (int) width, (int) height, false, false);
+        }
+    }*/
 
     private void drawFPS(int x, int y) {
         int fps = Gdx.graphics.getFramesPerSecond();
