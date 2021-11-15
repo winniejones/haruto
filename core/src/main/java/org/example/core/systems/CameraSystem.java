@@ -44,6 +44,6 @@ public class CameraSystem extends IteratingSystem {
                 cam.zoom = zoomTarget;
             }
         }
-        cam.zoom = MathUtils.clamp(cam.zoom, 0.001f, 100000);
+        cam.zoom = MathUtils.clamp(Math.round(cam.zoom), 0.001f, 100000);
     }
 }

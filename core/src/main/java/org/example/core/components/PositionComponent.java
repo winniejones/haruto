@@ -14,8 +14,8 @@ public class PositionComponent implements Component {
     public byte zOrder;
 
     public void setPos(float nextX, float nextY){
-        pos.x = nextX;
-        pos.y = nextY;
+        pos.x = Math.round(nextX);
+        pos.y = Math.round(nextY);
     }
 
     public void setPos(Vector2 nextVec) {

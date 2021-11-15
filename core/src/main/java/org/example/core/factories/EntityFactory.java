@@ -20,7 +20,7 @@ public class EntityFactory {
         entity.add(position);
 
         CharacterComponent character = new CharacterComponent();
-        character.walkSpeed = 10f;
+        character.walkSpeed = 2f;
         entity.add(character);
 
         AnimationComponent animationComponent = new AnimationComponent();

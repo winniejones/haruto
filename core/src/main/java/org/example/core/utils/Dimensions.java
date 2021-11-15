@@ -14,7 +14,7 @@ public class Dimensions {
     /* Meters to pixels */
     public static final float PIXELS_TO_METRES = 1.0f /PPM;
 
-    public static final float ENTITY_SIZE = 0.65f/PPM;
+    public static final float ENTITY_SIZE = 1.0f/PPM;
 
     public static final float BOX_2D_OFFSET = 1/2f;
 
